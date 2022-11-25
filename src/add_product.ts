@@ -1,10 +1,18 @@
 export const AddProducts = {
-  add() {
+  add({
+    name,
+    price,
+    quantity,
+  }: {
+    name: string;
+    price: number;
+    quantity: number;
+  }) {
     return {
       id: "productId",
-      name: "notebook dell",
-      price: 2000.0,
-      amount: 30,
+      name: name,
+      price: price,
+      quantity: quantity,
     };
   },
 };
