@@ -1,4 +1,4 @@
-import { IProductRepository, AddProductInput } from "../../src/add_product";
+import { IProductRepository, AddProductInput } from "@/add_product";
 
 export class productRepositoryFake implements IProductRepository {
   private _datas: any = [];

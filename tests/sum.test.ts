@@ -1,5 +1,5 @@
-import { AddProducts } from "../src/add_product";
-import { productRepositoryFake } from "./fakes/product_repository_fake";
+import { AddProducts } from "@/add_product";
+import { productRepositoryFake } from "@/tests/fakes/product_repository_fake";
 
 const makeSut = () => {
   const productRepo = new productRepositoryFake();
