@@ -1,3 +1,7 @@
-test("sum nums", () => {
-  expect(1 + 1).toBe(2);
+import { AddProducts } from "../src/add_product";
+
+test("Should add products", () => {
+  const product = AddProducts.add();
+
+  expect(product.amount).toBe(30);
 });
