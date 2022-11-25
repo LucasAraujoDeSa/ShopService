@@ -1,13 +1,11 @@
+type IAddProductInput = {
+  name: string;
+  price: number;
+  quantity: number;
+};
+
 export const AddProducts = {
-  add({
-    name,
-    price,
-    quantity,
-  }: {
-    name: string;
-    price: number;
-    quantity: number;
-  }) {
+  add({ name, price, quantity }: IAddProductInput) {
     return {
       id: "productId",
       name: name,
