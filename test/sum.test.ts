@@ -1,8 +1,16 @@
 import { AddProducts } from "../src/add_product";
 import { productRepositoryFake } from "./fakes/product_repository_fake";
 
+const makeSut = () => {
+  const productRepo = new productRepositoryFake();
+  const sut = new AddProducts(productRepo);
+  return {
+    sut,
+  };
+};
+
 test("Should add products", () => {
-  const repo = new productRepositoryFake();
+  const { sut } = makeSut();
 
   const input = {
     name: "notebook",
@@ -10,7 +18,7 @@ test("Should add products", () => {
     quantity: 30,
   };
 
-  const product = new AddProducts(repo).add(input);
+  const product = sut.add(input);
 
   expect(product.quantity).toBe(30);
 });
