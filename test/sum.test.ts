@@ -10,15 +10,19 @@ const makeSut = () => {
   };
 };
 
+const mock = () => {
+  return {
+    name: "notebook",
+    price: 2.0,
+    quantity: 30,
+  };
+};
+
 describe("AddProducts", () => {
   test("Should add products", () => {
     const { sut } = makeSut();
 
-    const input = {
-      name: "notebook",
-      price: 2.0,
-      quantity: 30,
-    };
+    const input = mock();
 
     const product = sut.add(input);
 
@@ -28,11 +32,7 @@ describe("AddProducts", () => {
   test("Should save data into products database", () => {
     const { sut, productRepo } = makeSut();
 
-    const input = {
-      name: "notebook",
-      price: 2.0,
-      quantity: 30,
-    };
+    const input = mock();
 
     const productRepoSpy = jest.spyOn(productRepo, "add");
 
