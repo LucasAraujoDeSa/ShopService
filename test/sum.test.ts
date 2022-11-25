@@ -10,7 +10,7 @@ test("Should add products", () => {
     quantity: 30,
   };
 
-  const product = AddProducts.add(input, repo);
+  const product = new AddProducts(repo).add(input);
 
   expect(product.quantity).toBe(30);
 });

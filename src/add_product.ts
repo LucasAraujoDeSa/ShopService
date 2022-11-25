@@ -8,12 +8,11 @@ export interface IProductRepository {
   add: (input: AddProductInput) => void;
 }
 
-export const AddProducts = {
-  add(
-    { name, price, quantity }: AddProductInput,
-    productRepository: IProductRepository
-  ) {
-    productRepository.add({
+export class AddProducts {
+  constructor(private productRepository: IProductRepository) {}
+
+  public add({ name, price, quantity }: AddProductInput) {
+    this.productRepository.add({
       name,
       price,
       quantity,
@@ -25,5 +24,5 @@ export const AddProducts = {
       price: price,
       quantity: quantity,
     };
-  },
-};
+  }
+}
