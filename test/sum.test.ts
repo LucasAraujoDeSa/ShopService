@@ -9,16 +9,18 @@ const makeSut = () => {
   };
 };
 
-test("Should add products", () => {
-  const { sut } = makeSut();
+describe("AddProducts", () => {
+  test("Should add products", () => {
+    const { sut } = makeSut();
 
-  const input = {
-    name: "notebook",
-    price: 2.0,
-    quantity: 30,
-  };
+    const input = {
+      name: "notebook",
+      price: 2.0,
+      quantity: 30,
+    };
 
-  const product = sut.add(input);
+    const product = sut.add(input);
 
-  expect(product.quantity).toBe(30);
+    expect(product.quantity).toBe(30);
+  });
 });
