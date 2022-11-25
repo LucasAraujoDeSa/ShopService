@@ -1,7 +1,13 @@
 import { AddProducts } from "../src/add_product";
 
 test("Should add products", () => {
-  const product = AddProducts.add();
+  const input = {
+    name: "notebook",
+    price: 2.0,
+    quantity: 30,
+  };
 
-  expect(product.amount).toBe(30);
+  const product = AddProducts.add(input);
+
+  expect(product.quantity).toBe(30);
 });
