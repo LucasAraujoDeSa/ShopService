@@ -24,7 +24,7 @@ describe("AddProducts", () => {
 
     const input = mock();
 
-    const product = sut.add(input);
+    const product = sut.execute(input);
 
     expect(product.quantity).toBe(30);
   });
@@ -36,7 +36,7 @@ describe("AddProducts", () => {
 
     const productRepoSpy = jest.spyOn(productRepo, "add");
 
-    sut.add(input);
+    sut.execute(input);
 
     expect(productRepoSpy).toHaveBeenCalledWith(input);
   });

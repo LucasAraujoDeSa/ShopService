@@ -16,10 +16,10 @@ export interface IAddProductRepository {
 }
 
 export class AddProducts {
-  constructor(private productRepository: IAddProductRepository) {}
+  constructor(private _productRepository: IAddProductRepository) {}
 
-  public add({ name, price, quantity }: AddProductInput): AddProductOutput {
-    const product = this.productRepository.add({
+  public execute({ name, price, quantity }: AddProductInput): AddProductOutput {
+    const product = this._productRepository.add({
       name,
       price,
       quantity,
