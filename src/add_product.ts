@@ -11,12 +11,12 @@ export type AddProductOutput = {
   quantity: number;
 };
 
-export interface IProductRepository {
+export interface IAddProductRepository {
   add: (input: AddProductInput) => AddProductOutput;
 }
 
 export class AddProducts {
-  constructor(private productRepository: IProductRepository) {}
+  constructor(private productRepository: IAddProductRepository) {}
 
   public add({ name, price, quantity }: AddProductInput): AddProductOutput {
     const product = this.productRepository.add({

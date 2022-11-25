@@ -1,10 +1,10 @@
 import {
-  IProductRepository,
+  IAddProductRepository,
   AddProductInput,
   AddProductOutput,
 } from "@/add_product";
 
-export class productRepositoryFake implements IProductRepository {
+export class productRepositoryFake implements IAddProductRepository {
   private _datas: Array<AddProductOutput> = [];
 
   add(input: AddProductInput): AddProductOutput {
