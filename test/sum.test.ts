@@ -6,6 +6,7 @@ const makeSut = () => {
   const sut = new AddProducts(productRepo);
   return {
     sut,
+    productRepo,
   };
 };
 
@@ -22,5 +23,21 @@ describe("AddProducts", () => {
     const product = sut.add(input);
 
     expect(product.quantity).toBe(30);
+  });
+
+  test("Should save data into products database", () => {
+    const { sut, productRepo } = makeSut();
+
+    const input = {
+      name: "notebook",
+      price: 2.0,
+      quantity: 30,
+    };
+
+    const productRepoSpy = jest.spyOn(productRepo, "add");
+
+    sut.add(input);
+
+    expect(productRepoSpy).toHaveBeenCalledWith(input);
   });
 });
