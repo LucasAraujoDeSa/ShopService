@@ -32,4 +32,12 @@ describe("GetProduct", () => {
 
     expect(product?.name).toBe("notebook");
   });
+
+  test("Should return undefined if product not found", () => {
+    const { sut } = makeSut();
+
+    const product = sut.execute("id");
+
+    expect(product).toBe(undefined);
+  });
 });
