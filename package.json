@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start:dev": "nest start --watch"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +19,9 @@
     "typescript": "^4.9.3"
   },
   "dependencies": {
+    "@nestjs/common": "^9.2.0",
+    "@nestjs/core": "^9.2.0",
+    "@nestjs/platform-express": "^9.2.0",
     "@prisma/client": "^4.6.1",
     "git-commit-msg-linter": "^4.2.1"
   }
