@@ -19,24 +19,24 @@ const mock = () => {
 };
 
 describe("AddProducts", () => {
-  test("Should add products", () => {
+  test("Should add products", async () => {
     const { sut } = makeSut();
 
     const input = mock();
 
-    const product = sut.execute(input);
+    const product = await sut.execute(input);
 
     expect(product.quantity).toBe(30);
   });
 
-  test("Should save data into products database", () => {
+  test("Should save data into products database", async () => {
     const { sut, productRepo } = makeSut();
 
     const input = mock();
 
     const productRepoSpy = jest.spyOn(productRepo, "add");
 
-    sut.execute(input);
+    await sut.execute(input);
 
     expect(productRepoSpy).toHaveBeenCalledWith(input);
   });

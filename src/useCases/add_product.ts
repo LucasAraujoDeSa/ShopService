@@ -12,14 +12,18 @@ export type AddProductOutput = {
 };
 
 export interface IAddProductRepository {
-  add: (input: AddProductInput) => AddProductOutput;
+  add: (input: AddProductInput) => Promise<AddProductOutput>;
 }
 
 export class AddProducts {
   constructor(private _productRepository: IAddProductRepository) {}
 
-  public execute({ name, price, quantity }: AddProductInput): AddProductOutput {
-    const product = this._productRepository.add({
+  public async execute({
+    name,
+    price,
+    quantity,
+  }: AddProductInput): Promise<AddProductOutput> {
+    const product = await this._productRepository.add({
       name,
       price,
       quantity,

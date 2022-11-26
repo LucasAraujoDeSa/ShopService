@@ -16,7 +16,7 @@ export class productRepositoryFake
 {
   private _datas: Array<AddProductOutput> = [];
 
-  public add(input: AddProductInput): AddProductOutput {
+  public async add(input: AddProductInput): Promise<AddProductOutput> {
     const product = Object.assign({
       ...input,
       id: `product_${this._datas.length + 1}`,
