@@ -6,14 +6,14 @@ export type GetProductOutput = {
 };
 
 export interface IGetProductRepository {
-  getById: (id: string) => GetProductOutput | undefined;
+  getById: (id: string) => Promise<GetProductOutput | undefined>;
 }
 
 export class GetProduct {
   constructor(private _productRepository: IGetProductRepository) {}
 
-  public execute(id: string): GetProductOutput | undefined {
-    const product = this._productRepository.getById(id);
+  public async execute(id: string): Promise<GetProductOutput | undefined> {
+    const product = await this._productRepository.getById(id);
 
     return product;
   }

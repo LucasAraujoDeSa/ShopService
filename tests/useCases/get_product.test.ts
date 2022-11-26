@@ -21,22 +21,22 @@ const mock = () => {
 };
 
 describe("GetProduct", () => {
-  test("Should return a product", () => {
+  test("Should return a product", async () => {
     const { addProducts, sut } = makeSut();
 
     const input = mock();
 
-    const newProduct = addProducts.execute(input);
+    const newProduct = await addProducts.execute(input);
 
-    const product = sut.execute(newProduct.id);
+    const product = await sut.execute(newProduct.id);
 
     expect(product?.name).toBe("notebook");
   });
 
-  test("Should return undefined if product not found", () => {
+  test("Should return undefined if product not found", async () => {
     const { sut } = makeSut();
 
-    const product = sut.execute("id");
+    const product = await sut.execute("id");
 
     expect(product).toBe(undefined);
   });

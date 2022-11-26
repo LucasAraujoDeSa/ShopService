@@ -31,7 +31,7 @@ export class productRepositoryFake
     return this._datas;
   }
 
-  public getById(id: string): GetProductOutput | undefined {
+  public async getById(id: string): Promise<GetProductOutput | undefined> {
     let myProduct = undefined;
 
     this._datas.forEach((product: GetProductOutput) => {
