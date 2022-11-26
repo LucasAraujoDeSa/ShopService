@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start:dev": "nest start --watch"
+    "start:dev": "rimraf ./dist && nest start --watch"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +23,7 @@
     "@nestjs/core": "^9.2.0",
     "@nestjs/platform-express": "^9.2.0",
     "@prisma/client": "^4.6.1",
-    "git-commit-msg-linter": "^4.2.1"
+    "git-commit-msg-linter": "^4.2.1",
+    "rimraf": "^3.0.2"
   }
 }
