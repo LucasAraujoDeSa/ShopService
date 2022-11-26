@@ -27,7 +27,7 @@ export class productRepositoryFake
     return product;
   }
 
-  public getAll(): GetProductsOutput[] {
+  public async getAll(): Promise<Array<GetProductsOutput>> {
     return this._datas;
   }
 

@@ -6,14 +6,14 @@ export type GetProductsOutput = {
 };
 
 export interface IGetProductsRepository {
-  getAll: () => Array<GetProductsOutput>;
+  getAll: () => Promise<Array<GetProductsOutput>>;
 }
 
 export class GetProducts {
   constructor(private _productRepository: IGetProductsRepository) {}
 
-  public execute(): Array<GetProductsOutput> {
-    const products = this._productRepository.getAll();
+  public async execute(): Promise<Array<GetProductsOutput>> {
+    const products = await this._productRepository.getAll();
 
     return products;
   }

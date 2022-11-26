@@ -22,16 +22,16 @@ const mock = () => {
 };
 
 describe("GetProducts", () => {
-  test("Should list products", () => {
+  test("Should list products", async () => {
     const { addProducts, sut } = makeSut();
 
     const input = mock();
 
-    addProducts.execute(input);
-    addProducts.execute(input);
-    addProducts.execute(input);
+    await addProducts.execute(input);
+    await addProducts.execute(input);
+    await addProducts.execute(input);
 
-    const products = sut.execute();
+    const products = await sut.execute();
 
     expect(products.length).toBe(3);
   });
