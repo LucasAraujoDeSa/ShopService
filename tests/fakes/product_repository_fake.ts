@@ -2,12 +2,17 @@ import {
   IAddProductRepository,
   AddProductInput,
   AddProductOutput,
-} from "@/add_product";
-
-import { IGetProductsRepository, GetProductsOutput } from "@/get_products";
+  IGetProductsRepository,
+  GetProductsOutput,
+  IGetProductRepository,
+  GetProductOutput,
+} from "@/index";
 
 export class productRepositoryFake
-  implements IAddProductRepository, IGetProductsRepository
+  implements
+    IAddProductRepository,
+    IGetProductsRepository,
+    IGetProductRepository
 {
   private _datas: Array<AddProductOutput> = [];
 
@@ -24,5 +29,17 @@ export class productRepositoryFake
 
   public getAll(): GetProductsOutput[] {
     return this._datas;
+  }
+
+  public getById(id: string): GetProductOutput | undefined {
+    let myProduct = undefined;
+
+    this._datas.forEach((product: GetProductOutput) => {
+      if (product.id === id) {
+        myProduct = product;
+      }
+    });
+
+    return myProduct;
   }
 }
