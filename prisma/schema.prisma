@@ -11,3 +11,11 @@ datasource db {
 }
 
 
+model Product {
+  id String @id @default(uuid())
+  name String
+  price Float
+  quantity Int 
+
+  @@map("product")
+}
