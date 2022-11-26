@@ -1,5 +1,5 @@
-import { AddProducts } from "@/add_product";
-import { GetProducts } from "@/get_products";
+import { AddProducts } from "@/useCases/add_product";
+import { GetProducts } from "@/useCases/get_products";
 import { productRepositoryFake } from "@/tests/fakes/product_repository_fake";
 
 const makeSut = () => {

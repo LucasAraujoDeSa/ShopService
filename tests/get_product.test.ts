@@ -1,4 +1,4 @@
-import { GetProduct, AddProducts } from "@/index";
+import { GetProduct, AddProducts } from "@/useCases/index";
 import { productRepositoryFake } from "@/tests/fakes/product_repository_fake";
 
 const makeSut = () => {

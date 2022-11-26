@@ -6,7 +6,7 @@ import {
   GetProductsOutput,
   IGetProductRepository,
   GetProductOutput,
-} from "@/index";
+} from "@/useCases/index";
 
 export class productRepositoryFake
   implements
