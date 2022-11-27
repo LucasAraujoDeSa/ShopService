@@ -16,7 +16,7 @@ export interface IAddProductRepository {
 }
 
 export class AddProducts {
-  constructor(private _productRepository: IAddProductRepository) {}
+  constructor(protected _productRepository: IAddProductRepository) {}
 
   public async execute({
     name,

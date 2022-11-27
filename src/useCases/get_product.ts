@@ -10,7 +10,7 @@ export interface IGetProductRepository {
 }
 
 export class GetProduct {
-  constructor(private _productRepository: IGetProductRepository) {}
+  constructor(protected _productRepository: IGetProductRepository) {}
 
   public async execute(id: string): Promise<GetProductOutput | undefined> {
     const product = await this._productRepository.getById(id);
