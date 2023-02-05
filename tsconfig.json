@@ -7,6 +7,7 @@
     "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true,
     "strict": true,
+    "strictPropertyInitialization": false,
     "skipLibCheck": true,
     "baseUrl": "src",
     "paths": {

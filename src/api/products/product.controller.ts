@@ -1,22 +1,27 @@
-import { productRepositoryImpl } from "@/infra/productRepositoryImpl";
-import { GetProducts, GetProduct, AddProductInput } from "@/useCases";
+import { AddProductInput } from "@/useCases";
 import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import { ApiBody, ApiOperation, ApiParam, ApiQuery, ApiResponse } from "@nestjs/swagger";
+import { AddProductOutputSchema, AddProductInputSchema } from "../docs/schemas/add_product_entity";
 import { AddProductService } from "./add_product.service";
 import { GetProductService } from "./get_product.service";
 import { GetProductsService } from "./get_products.service";
 
 @Controller("product")
 export class ProductController {
-  // private _productRepository = new productRepositoryImpl();
-  // private _getProducts = new GetProducts(this._productRepository);
-  // private _getProduct = new GetProduct(this._productRepository);
-
   constructor(
     private _addProductService: AddProductService,
     private _getProductService: GetProductService,
     private _getProductsService: GetProductsService
   ) {}
-
+  
+  //addProduct
+  @ApiOperation({ summary: 'Create cat' })
+  @ApiBody({ type: [AddProductInputSchema] })
+  @ApiResponse({ 
+    status: 201, 
+    description: 'Created.',
+    type: AddProductOutputSchema
+  })
   @Post()
   async create(@Body() productInput: AddProductInput) {
     const product = await this._addProductService.execute(productInput);
@@ -24,6 +29,14 @@ export class ProductController {
     return product;
   }
 
+  // getAllProducts
+  @ApiOperation({ summary: 'get all products' })
+  @ApiResponse({ 
+    status: 200, 
+    description: 'Success',
+    isArray: true,
+    type: AddProductOutputSchema
+  })
   @Get()
   findAll() {
     const products = this._getProductsService.execute();
@@ -31,6 +44,14 @@ export class ProductController {
     return products;
   }
 
+  // getProduct
+  @ApiOperation({ summary: 'get product' })
+  @ApiParam({ name: 'id', type: 'string' })
+  @ApiResponse({ 
+    status: 200,  
+    description: 'get product',
+    type: AddProductOutputSchema
+  })
   @Get(":id")
   findById(@Param("id") id: string) {
     const product = this._getProductService.execute(id);
